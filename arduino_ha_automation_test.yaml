@@ -1,0 +1,30 @@
+- id: '...'
+  alias: increase desk arduino 
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: arduino/accelerator
+    payload: U
+    id: arduino-up-desk
+  condition: []
+  action:
+  - device_id: DEVICE_ID 
+    domain: light
+    entity_id: light.desk
+    type: brightness_increase
+  mode: single
+- id: '...'
+  alias: decrease desk arduino
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: arduino/accelerator
+    id: arduino-down-desk
+    payload: D
+  condition: []
+  action:
+  - device_id: DEVICE_ID 
+    domain: light
+    entity_id: light.desk
+    type: brightness_decrease
+  mode: single
